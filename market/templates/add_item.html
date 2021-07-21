@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% block content %}
+      
+      <h2 style="margin-top: 20px; margin-left: 20px;">Add Items to the Market</h2>
+      <form method="POST" class="form-add" style="color: white;">
+            {{ form.hidden_tag() }}
+            <fieldset class="mt-5">
+                  <div class="container">
+                        {{form.name.label()}}
+                        {% if form.name.errors %}
+                        {{ form.name(class="col-sm-2 col-form-label") }}
+                        <div class="invalid-feedback">
+                              {% for error in form.name.errors %}
+                              <span>{{ error }}</span>
+                              {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.name(class = "form-control bg-dark text-white") }}
+                        {% endif %}
+                  </div>
+
+                  <div class="container">
+                        {{form.price.label()}}
+                        {% if form.price.errors %}
+                        {{ form.price(class="col-sm-2 col-form-label") }}
+                        <div class="invalid-feedback">
+                              {% for error in form.price.errors %}
+                              <span>{{ error }}</span>
+                              {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.price(class = "form-control bg-dark text-white") }}
+                        {% endif %}
+                  </div>
+
+                  <div class="container">
+                        {{form.barcode.label()}}
+                        {% if form.barcode.errors %}
+                        {{ form.barcode(class="col-sm-2 col-form-label") }}
+                        <div class="invalid-feedback">
+                              {% for error in form.barcode.errors %}
+                              <span>{{ error }}</span>
+                              {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.barcode(class = "form-control bg-dark text-white") }}
+                        {% endif %}
+                  </div>
+
+                  <div class="container">
+                        {{form.description.label()}}
+                        {% if form.description.errors %}
+                        {{ form.description(class="col-sm-2 col-form-label") }}
+                        <div class="invalid-feedback">
+                              {% for error in form.description.errors %}
+                              <span>{{ error }}</span>
+                              {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.description(class = "form-control bg-dark text-white") }}
+                        {% endif %}
+                  </div>
+            </fieldset> <br>
+            <div class="container">
+                  {{ form.submit(class = "btn btn-outline-info") }}
+            </div>
+      </form> <br>
+      <br>
+
+{% endblock content %}

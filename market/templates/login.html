@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block content %}
+      <body>
+            <div class="container">
+                  <form method="POST" class="form-register" style="color: white;">
+                        {{ form.hidden_tag() }}
+                        <img class="mb-4 img-fluid img-thumbnail mx-auto d-block rounded-circle", src="https://cdn.discordapp.com/attachments/553868150186311683/862588242049630228/2019-12-14.jpg">
+                        <h1 class="h3 mb-3 front-weight-normal container">Login To Your Account</h1>
+                        <fieldset>
+                        
+                              <div class="container">
+                                    {{form.username.label()}}
+                                    {% if form.username.errors %}
+                                    {{ form.email(class = "form-control is-invalid ") }}
+                                    <div class="invalid-feedback">
+                                          {% for error in form.username.errors %}
+                                          <span>{{ error }}</span>
+                                          {% endfor %}
+                                    </div>
+                                    {% else %}
+                                    {{ form.username(class = "form-control bg-dark text-white") }}
+                                    {% endif %}
+                              </div>
+                        
+                              <div class="container">
+                                    {{ form.password.label() }}
+                                    {% if form.password.errors %}
+                                    {{ form.password(class = "form-control is-invalid") }}
+                                    <div class="invalid-feedback">
+                                          {% for error in form.password.errors %}
+                                          <span>{{ error }}</span>
+                                          {% endfor %}
+                                    </div>
+                                    {% else %}
+                                    {{ form.password(class = "form-control bg-dark text-white") }}
+                                    {% endif %}
+                              </div>
+                        
+                        </fieldset>
+                        <br>
+                        <div class="container">
+                              {{ form.submit(class = "btn btn-outline-info") }}
+                        </div>
+
+                  </form>
+            </div>
+            <div class="container" pt-3>
+                  <small class="text-muted">
+                        Don't Have An Account? <a class="ml-2" href="{{url_for('register_page')}}">Sign Up</a>
+                  </small>
+            </div>
+            <br>
+      </body>
+{% endblock content %}
